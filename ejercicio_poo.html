@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Definición de la clase Empleado
+        class Empleado {
+        constructor(nombre, salario) {
+            this.nombre = nombre;
+            this.salario = salario;
+        }
+
+        // Método para calcular el salario anual del empleado
+        calcularSalarioAnual() {
+            return this.salario * 12;
+        }
+
+        // Método para mostrar información del empleado
+        mostrarInformacion() {
+            return `Nombre: ${this.nombre}, Salario: ${this.salario}`;
+        }
+        }
+
+        // Definición de la clase Manager que hereda de Empleado
+        class Manager extends Empleado {
+        constructor(nombre, salario, departamento) {
+            super(nombre, salario);
+            this.departamento = departamento;
+        }
+
+        // Método para mostrar información del manager
+        mostrarInformacion() {
+            return `${super.mostrarInformacion()}, Departamento: ${this.departamento}`;
+        }
+        }
+
+        // Creación de instancias de empleados y managers
+        let empleado1 = new Empleado("Juan", 30000);
+        let manager1 = new Manager("María", 50000, "Ventas");
+
+        // Mostrar información de los empleados y managers
+        console.log(empleado1.mostrarInformacion()); // Output: Nombre: Juan, Salario: 30000
+        console.log(empleado1.calcularSalarioAnual()); // Output: 360000
+        console.log(manager1.mostrarInformacion()); // Output: Nombre: María, Salario: 50000, Departamento: Ventas
+        console.log(manager1.calcularSalarioAnual()); // Output: 600000
+
+    </script>
+</body>
+</html>
